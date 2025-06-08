@@ -12,7 +12,7 @@
 
 2.
 ``` npm install --save-dev jest //Installerar Jest som utvecklingsberoende ```
- --save-dev betyder att Jest bara behövs i utvecklingsmiljö (inte i produktion). 
+ //--save-dev betyder att Jest bara behövs i utvecklingsmiljö (inte i produktion). 
 
 ## I package.json:
 
