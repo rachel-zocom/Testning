@@ -7,7 +7,8 @@
 ## I terminalen (Bash):
 
 1.
-``` npm init -y //Skapar package.json ```
+``` npm init -y  ```
+//Skapar package.json
 
 2.
 ``` npm install --save-dev jest //Installerar Jest som utvecklingsberoende ```
