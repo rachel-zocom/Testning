@@ -89,6 +89,8 @@ expect(sum(2, 3)).toBe(5);
 });
  ```
 
+## Syntax
+
  ```
 expect(value).toBe(expected); // Jämför med === (primitiva värden)
 expect(value).toEqual(expected); // Jämför objekt och arrayer (djupjämförelse)
