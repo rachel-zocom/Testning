@@ -10,8 +10,8 @@
 ``` npm init -y //Skapar package.json ```
 
 2.
-``` npm install --save-dev jest //Installerar Jest som utvecklingsberoende
-   // --save-dev betyder att Jest bara behövs i utvecklingsmiljö (inte i produktion). ```
+``` npm install --save-dev jest //Installerar Jest som utvecklingsberoende ```
+ --save-dev betyder att Jest bara behövs i utvecklingsmiljö (inte i produktion). 
 
 ## I package.json:
 
