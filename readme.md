@@ -6,11 +6,12 @@
 
 ## I terminalen (Bash):
 
-1.
-    npm init -y //Skapar package.json
+1.```
+   npm init -y //Skapar package.json
     ```
-```
-2. npm install --save-dev jest //Installerar Jest som utvecklingsberoende
+
+2. ```
+   npm install --save-dev jest //Installerar Jest som utvecklingsberoende
    // --save-dev betyder att Jest bara behövs i utvecklingsmiljö (inte i produktion).
    ```
 
@@ -18,12 +19,14 @@
 
 Lägg till:
 
+```
 ´{
 "type": "module",
 "scripts": {
 "test": "jest"
 }
 }´
+ ```
 
 "type": "module" gör att Node.js känner igen ES-moduler (import/export).
 
@@ -34,10 +37,11 @@ Jest har inte fullständigt stöd för ES-moduler utan extra konfiguration. För
 1. Sätta "type": "module" i package.json — för att Node ska känna igen ES-moduler.
 
 2. Skapa en jest.config.js i projektets rot med:
-
+ ```
 export default {
 testEnvironment: "node", // Byt till "jsdom" för React-tester
 };
+ ```
 
 3. Använda senaste Jest-versionen som har förbättrat stöd för ESM.
 
@@ -45,40 +49,48 @@ Dock kan vi behöva använda babel (se nästa steg)
 
 ### Skapa babel.config.cjs i projektets rot:
 
+ ```
 npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-jest
+ ```
 
+ ```
 module.exports = {
 presets: [
 ['@babel/preset-env', { targets: { node: 'current' } }], // för Node.js (Jest kör i Node)
 '@babel/preset-react', // för JSX (React)
 ],
 };
+ ```
 
 eller
 
+ ```
 module.exports = {
 presets: [["@babel/preset-env", { targets: { node: "current" } }]],
 };
-
+ ```
 
 ## 📄 sum.js
 
 Skapa en fil med funktionen vi ska testa:
-
-´export function sum(a, b) {
+ ```
+export function sum(a, b) {
 return a + b;
-}´
-
+}
+ ```
 ## 📄 sum.test.js
 
 Skapa en testfil med detta innehåll:
 
-´import { sum } from './sum.js';
+ ```
+import { sum } from './sum.js';
 
 test('adds 2 + 3 to equal 5', () => {
 expect(sum(2, 3)).toBe(5);
-});´
+});
+ ```
 
+ ```
 expect(value).toBe(expected); // Jämför med === (primitiva värden)
 expect(value).toEqual(expected); // Jämför objekt och arrayer (djupjämförelse)
 expect(value).toBeTruthy(); // Värdet är "sant"
@@ -89,17 +101,20 @@ expect(value).toBeUndefined(); // Värdet är undefined
 expect(value).toContain(item); // Array eller sträng innehåller item
 expect(value).toHaveLength(number); // Array eller sträng har length == number
 expect(() => fn()).toThrow(); // Funktion kastar ett fel
+ ```
 
 ### Testa asynkron kod (t ex med fetch):
 
+ ```
 test('fetch returns data', async () => {
 const data = await fetchData();
 expect(data).toBeDefined();
 });
+ ```
 
 ## 🧪 Kör testet
 
-npm test
+ ```npm test ```
 
 ✅ Förväntat resultat
 Du bör se något liknande:
